@@ -18,12 +18,18 @@ export default function Home() {
           Search
         </button>
       </form>
-      <h2 className="text-blue-500 mb-6">Search result</h2>
-      <div className="grid grid-cols-2 gap-4">
-        {pokemons.map((pokemon: any) => (
-          <Card key={pokemon.id} pokemon={pokemon} />
-        ))}
-      </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <h2 className="text-blue-500 mb-6">Search result</h2>
+          <div className="grid grid-cols-2 gap-4">
+            {pokemons.map((pokemon: any) => (
+              <Card key={pokemon.id} pokemon={pokemon} />
+            ))}
+          </div>
+        </>
+      )}
     </section>
   )
 }
