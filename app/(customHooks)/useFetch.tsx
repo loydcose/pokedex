@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
+import fetchPokemon from "../(lib)/fetchPokemon"
 
 export default function useFetch() {
   const [pokemon, setPokemon] = useState({})
@@ -11,19 +12,13 @@ export default function useFetch() {
   useEffect(() => {
     const getData = async () => {
       const pokemonId = pathname.split("/")[2]
-      const URL = "https://pokeapi.co/api/v2/pokemon/" + pokemonId
 
       try {
         setLoading(true)
-        const response = await fetch(URL)
-        if (!response.ok) {
-          setIsError(true)
-          return
-        }
-        const data = await response.json()
-        console.log(data)
-        setPokemon(data)
+        const [data, error] = await fetchPokemon(pokemonId)
+        error ? setIsError(true) : setPokemon(data)
       } catch (error: any) {
+        setIsError(true)
         console.error(error.message)
       } finally {
         setLoading(false)

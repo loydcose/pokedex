@@ -2,19 +2,29 @@
 
 import useAllFetch from "./(customHooks)/useAllFetch"
 import Card from "./(components)/Card"
+import { useRef } from "react"
 
 export default function Home() {
   const { pokemons, loading } = useAllFetch()
+  const searchRef = useRef<HTMLInputElement>(null)
+
+  const handleSearch = async (e: any) => {
+    e.preventDefault()
+  }
 
   return (
     <section>
-      <form className="flex gap-4 mb-12">
+      <form onSubmit={handleSearch} className="flex gap-4 mb-12">
         <input
+          ref={searchRef}
           type="text"
           placeholder="Search pokemon or id"
           className="border border-slate-400 rounded-md py-3 px-6 bg-transparent w-full"
         />
-        <button className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700">
+        <button
+          type="submit"
+          className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700"
+        >
           Search
         </button>
       </form>

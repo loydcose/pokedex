@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import initialPokemons from "../(lib)/initialPokemons"
+import fetchPokemon from "../(lib)/fetchPokemon"
 
 export default function useAllFetch() {
   const [pokemons, setPokemons] = useState<Array<object>>([])
@@ -8,13 +9,10 @@ export default function useAllFetch() {
   useEffect(() => {
     const getInitialPokemons = async () => {
       try {
-        const URL = "https://pokeapi.co/api/v2/pokemon/"
         setLoading(true)
         const getData = await Promise.all(
           initialPokemons.map(async (pokemon) => {
-            const response = await fetch(URL + pokemon)
-            if (!response.ok) return null
-            const data = await response.json()
+            const [data] = await fetchPokemon(pokemon)
             return data
           })
         )
