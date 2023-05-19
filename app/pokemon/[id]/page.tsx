@@ -18,7 +18,7 @@ export default function Pokemon() {
       )}
       <Link
         href="/"
-        className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 block w-fit mt-12 mx-auto"
+        className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 block w-full md:w-fit text-center mt-12 mx-auto"
       >
         Go back
       </Link>

@@ -9,18 +9,12 @@ export default function Details({ pokemon }: { [key: string]: any }) {
 
   return (
     <>
-      <h2 className="font-bold">{titleCase(name)} details</h2>
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-          <Image
-            src={image}
-            alt={name}
-            width={600}
-            height={600}
-            className="scale-75"
-          />
+      <h2 className="font-bold mb-8 md:mb-12">{titleCase(name)} details</h2>
+      <div className="bg-slate-800 rounded-lg p-10 md:p-16 flex flex-col gap-8 md:gap-16 md:flex-row md:w-[800px] md:mx-auto md:items-start">
+        <div className="md:basis-1/2">
+          <Image src={image} alt={name} width={300} height={300} className="" />
         </div>
-        <div className="bg-slate-800 p-6 rounded-lg grid gap-3">
+        <div className="grid gap-3">
           <p className="text-blue-600">#{id}</p>
           <p className="font-bold text-2xl">{titleCase(name)}</p>
           <div className="flex gap-2 flex-wrap">

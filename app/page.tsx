@@ -6,7 +6,7 @@ import { useRef } from "react"
 import { useRouter } from "next/navigation"
 
 export default function Home() {
-  const { pokemons, loading } = useAllFetch()
+  let { pokemons, loading } = useAllFetch()
   const searchRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
 
@@ -39,7 +39,7 @@ export default function Home() {
       ) : (
         <>
           <h2 className="text-blue-500 mb-6">Search result</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {pokemons.map((pokemon: any) => (
               <Card key={pokemon.id} pokemon={pokemon} />
             ))}

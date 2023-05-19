@@ -15,14 +15,14 @@ export default function Card({ pokemon }: { [key: string]: any }) {
     >
       <div className="aspect-square relative">
         <Image
-          width={500}
-          height={500}
+          width={300}
+          height={300}
           src={image}
           alt={name}
           className="w-full h-full object-fit scale-75"
         />
       </div>
-      <div className="p-4">
+      <div className="p-4 md:p-6">
         <p className="text-blue-600 font-bold">#{id}</p>
         <p className="font-bold text-xl mb-2">{titleCase(name)}</p>
         <div className="flex gap-2 flex-wrap">
