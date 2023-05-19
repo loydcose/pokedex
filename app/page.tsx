@@ -3,13 +3,19 @@
 import useAllFetch from "./(customHooks)/useAllFetch"
 import Card from "./(components)/Card"
 import { useRef } from "react"
+import { useRouter } from "next/navigation"
 
 export default function Home() {
   const { pokemons, loading } = useAllFetch()
   const searchRef = useRef<HTMLInputElement>(null)
+  const router = useRouter()
 
   const handleSearch = async (e: any) => {
     e.preventDefault()
+    const value = searchRef.current?.value
+    if (!value?.trim()) return
+
+    router.push(`pokemon/${value}`)
   }
 
   return (
