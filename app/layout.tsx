@@ -8,6 +8,9 @@ const roboto_mono = Roboto_Mono({ subsets: ["latin"] })
 export const metadata = {
   title: "Pokedex",
   description: "Search and browse pokemons",
+  icons: {
+    shortcut: "/favicon.svg"
+  }
 }
 
 export default function RootLayout({
@@ -17,7 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="icon" href="/favicon.svg" sizes="any" />
       <body className={roboto_mono.className + " bg-slate-900 text-slate-200"}>
         <main className="min-h-screen grid-place-items-center mx-auto w-[85%] max-w-[1206px] py-16">
           <h1 className="font-bold text-2xl mb-6 md:mb-12 flex items-center gap-3">
