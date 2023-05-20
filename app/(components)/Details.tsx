@@ -12,7 +12,7 @@ export default function Details({ pokemon }: { [key: string]: any }) {
       <h2 className="font-bold mb-8 md:mb-12">{titleCase(name)} details</h2>
       <div className="bg-slate-800 rounded-lg p-10 md:p-16 flex flex-col gap-8 md:gap-16 md:flex-row md:w-[800px] md:mx-auto md:items-start">
         <div className="md:basis-1/2">
-          <Image src={image} alt={name} width={300} height={300} className="" />
+          <Image src={image} alt={name} width={300} height={300} className="mx-auto" />
         </div>
         <div className="grid gap-3">
           <p className="text-blue-600">#{id}</p>
