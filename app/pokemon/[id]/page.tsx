@@ -4,6 +4,10 @@ import Details from "@/app/(components)/Details"
 import useFetch from "@/app/(customHooks)/useFetch"
 import Link from "next/link"
 
+export const metadata = {
+  title: "tae",
+}
+
 export default function Pokemon() {
   const { pokemon, loading, isError, hasData } = useFetch()
 

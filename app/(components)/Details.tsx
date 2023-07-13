@@ -2,6 +2,10 @@ import Image from "next/image"
 import typeColors from "../(lib)/typeColor"
 import titleCase from "../(lib)/titleCase"
 
+export const metadata = {
+  title: "tae",
+}
+
 export default function Details({ pokemon }: { [key: string]: any }) {
   const { id, name, types, height, weight, sprites } = pokemon
   const image =

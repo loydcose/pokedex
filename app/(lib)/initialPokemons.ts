@@ -5,7 +5,7 @@ const initialPokemons = [
   "tyranitar",
   "blaziken",
   "lucario",
-  "zoroark",
+  "ditto",
   "greninja",
 ]
 
